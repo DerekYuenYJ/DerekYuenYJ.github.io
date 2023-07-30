@@ -1,25 +1,29 @@
 
 ---
+project:
+  type: website
+  output-dir: docs
+
 title: 'Theme 1: Atmosphere and Climate'
 subtitle: Understanding Earth's Climate and Energy Balance Models (EBMs)
 author: Derek Yuen
+
 format:
   html:
     toc: true
     toc-location: right
     code-fold: true
-    embed-resources: true
-    
-project:
-  type: website
-  output-dir: docs
 ---
 
-## Learning Flow
+## LEARNING FLOW
 
-During Week 1 IS, you will be introduced to the chapter and we will discuss the contents of the first three sections.
+**Theme 1: Atmosphere and Climate** will be the subject of learning until the Week 3 lecture session. To better aid with your learning, please refer to this recommended learning flow:
 
-During Week 2 lecture, you will be introduced to the chapter and we will discuss the contents of the first three sections.
+During **Week 1 IS**, you will be introduced to the chapter and we will discuss the contents of sections 1-4. ***Prior to the session***, read through sections 1-4 and attempt exercise questions 1-4 while referring to the model answers provided. If you have any queries, you may bring them up for discussion during the IS session. Familiarize yourself with Figures 5 and 6 as well.
+
+During **Week 2 lecture**, we will be discussing the contents of sections 5-7. We will also be focusing on modelling the temperature evolution model and discussing the ice-albedo model. ***Prior to the session***, ensure you have completed modelling questions M1 - M4 after Week 1's IS and read through sections 5-7. 
+
+During **Week 2 IS** and **Week 3 lecture** sessions, we will be discussing the models you've done so far and your analysis of the models. You may continue to work on your models during this session and discuss with your peers if you face challenges in coding. If you have any questions on the contents taught, you may reach out to the lecturer and your mentors to seek clarification as well.
 
 ## 1 | INTRODUCTION
 
@@ -107,9 +111,12 @@ F = \sigma T^{4}
 ##### (D) Calculation of flux received at the surface of a planet  
 <p style='text-align: justify;'>To calculate the amount of flux received on the surface of a planet from the star $S_{0}$, we have to utilise the inverse square law (**Figure 5**). It says that the energy density is inversely proportional to the square of the distance from the source, while the total energy emitted from the source is constant.</p>
 
-![**Figure 5:** Illustration of energy dispersion through the inverse square law.](https://www.jpl.nasa.gov/edu/images/activities/inverse_square_law.jpg "Figure 5: Illustration of energy dispersion through the inverse square law."){fig-align="center" width="80%"}  
+![**Figure 5:** Illustration of energy dispersion through the inverse square law.](Media\Figure5.jpg "Figure 5: Illustration of energy dispersion through the inverse square law."){width="80%"}  
 
-$$\frac{F}{S_{0}} = \frac{R_{p}^{2}}{r_{s}^{2}}$$
+\begin{equation}
+\tag{3}
+\frac{F}{S_{0}} = \frac{R_{p}^{2}}{r_{s}^{2}}
+\end{equation}
 
 <p style='text-align: justify;'>The ratio between the flux emitted from the surface of the sun ($F$, $W m^{-2}$)  and the flux received on a planet ($S_{0}$, $W m^{-2}$) equals the ratio between the square of the planet's distance from the sun ($R_{p}$, $m$) and the square of the Sun's radius ($r_{s}$, $m$).</p>
 
@@ -117,7 +124,11 @@ $$\frac{F}{S_{0}} = \frac{R_{p}^{2}}{r_{s}^{2}}$$
 
 <p style='text-align: justify;'>Not all the light from the Sun is received by a planet, with one part being reflected off. The amount reflected depends on the albedo of the surface $\alpha$ (**Table 2**).</p>
  
-$$S_0' = S_0\alpha$$
+\begin{equation}
+\tag{4}
+S_0' = S_0\alpha
+\end{equation}
+
 <p style='text-align: justify;'>The flux reflected by the planet ($S_0'$, $W m^{-2}$) is the product of the flux received by the planet ($S_0$, $W m^{-2}$) and its albedo ($\alpha$).</p>
 
 **Table 2:** Albedo of various surfaces
@@ -133,7 +144,11 @@ $$S_0' = S_0\alpha$$
 
 
 We can then derive the equation for a planet's temperature at energy balance equilibrium to be:
-$$T_{p} = \sqrt[4]{\frac{S_0(1-\alpha)}{4\sigma}}$$
+
+\begin{equation}
+\tag{5}
+T_{p} = \sqrt[4]{\frac{S_0(1-\alpha)}{4\sigma}}
+\end{equation}
 
 
 ::: panel-tabset
@@ -157,7 +172,7 @@ $$T_{p} = \sqrt[4]{\frac{S_0(1-\alpha)}{4\sigma}}$$
 :::{.callout-caution icon=false collapse="true"}
 ## Modelling Questions 
 
-**M1.** Write code to calculate the flux received on a planet ($S_0$) given the following parameters: <br /> **1.** Temperature of the star (Sun), $T_s$ = $5780$ K <br /> **2.** Radius of the star (Sun), $r_s$ = $6.96 * 10^8 m$ <br /> **3.** Distance of the planet (Earth) from the star (Sun), $R_p$ = 1 AU <br /><br /> **Hint:** Use Stefan-Boltzmann Law and the Inverse square law.
+**M1.** Write code to calculate the flux received on a planet ($S_0$) given the following parameters: <br /> **1.** Temperature of the star (Sun), $T_s$ = $5780$ K <br /> **2.** Radius of the star (Sun), $r_s$ = $6.96 * 10^8 m$ <br /> **3.** Distance of the planet (Earth) from the star (Sun), $R_p$ = 1 AU <br /><br /> **Hint:** Use Stefan-Boltzmann Law (2) and the Inverse square law (3).
 
 ---
 
@@ -250,7 +265,10 @@ $$T = \sqrt[4]{\frac{S_0 * (1-\alpha)*(1+\tau_s)}{4\sigma(1+\tau_g)}}$$
 ## 5 | TEMPERATURE EVOLUTION MODEL
 #### 5.1 EARTH AS A GREYBODY
 So far, we have modelled the planet as a perfect blackbody and therefore the emitted flux Fg ($W m^{-2}$):
-$$F_{g} = \epsilon\sigma * T^4 = \sigma * T^4$$
+
+\begin{equation}
+F_{g} = \epsilon\sigma * T^4 = \sigma * T^4
+\end{equation}
 
 <p style='text-align: justify;'>$\epsilon$ is the emissivity of the body. It varies from 0 (no emission) to 1 (perfect blackbody emission). A body with an emissivity less than 1 is called a greybody.</p>
 
@@ -269,7 +287,11 @@ The temperature in Kelvin ($T_K$), the 0$^\circ$C in Kelvin ($T_0$ = 273.15K) an
 $${T_K}^4 = {T_0}^4 + 4{T_0}^3 * T_c = a + bT_c$$
 
 As $a$ and $b$ are constants, we can simplify:
-$$F_g = \epsilon\sigma * {T_K}^4 = \epsilon\sigma(a + bT_c) = A + BT_c$$
+
+\begin{equation}
+\tag{6}
+F_g = \epsilon\sigma * {T_K}^4 = \epsilon\sigma(a + bT_c) = A + BT_c
+\end{equation}
 
 <p style='text-align: justify;'>With A ($W m^{-2}$) and B ($W m^{-2}$ $^\circ C$) constants. A and B reflect the **emissivity** of the atmosphere. They will be given and they vary with the type of atmosphere (amount of greenhouse gases). More or less, the constants A and B can tell us the following:</p>
 
@@ -301,7 +323,10 @@ $$E_{loss} = A + BT_c$$
 
 <p style='text-align: justify;'>The absorption of heat of a body is controlled by the heat capacity (C). So, the difference between the energy gain and the energy loss of the Earth can be expressed:</p>
 
-$$C * \frac{dT}{dt} = E_{gain} - E_{loss}$$
+\begin{equation}
+\tag{7}
+C * \frac{dT}{dt} = E_{gain} - E_{loss}
+\end{equation}
 
 The rate of heat flow ($\frac{dT}{dt}$) is proportional to the difference between the energy gained and energy loss by Earth.
 
@@ -426,23 +451,36 @@ We divide the hemisphere in 10 bands of 9$^\circ$ latitude each (**Figure 14**).
 
 Use the zonal insolation data ($S_i$) to calculate $F_{gain}$ at each latitude band.
 
-$$F_{gain} = S_i * (1-\alpha_i) * M$$
+\begin{equation}
+\tag{8}
+F_{gain} = S_i * (1-\alpha_i) * M
+\end{equation}
 
 ##### (B) Temperature
 Let's define the average planet temperature as:
-$$T_{avg} = \sum(area_i * T_i)$$
+
+\begin{equation}
+\tag{9}
+T_{avg} = \sum(area_i * T_i)
+\end{equation}
 
 ##### (C) Energy loss from Earth
 <p style='text-align: justify;'>The energy emitted/lost at each latitude band is given by the local temperature ($T_i$) and the average temperature ($T_{avg}$):</p>
 
-$$F_{loss} = A + B * T_i + G * (T_i - T_{avg})$$
+\begin{equation}
+\tag{10}
+F_{loss} = A + B * T_i + G * (T_i - T_{avg})
+\end{equation}
 
 G represents heat transfer coefficient. $F_{loss}$ at each latitude band is then calculated.
 
 #### 7.3 LOCAL AND AVERAGE ALBEDO
 <p style='text-align: justify;'>Let's now find the local albedo ($\alpha_i$). At each latitude band, the albedo is fixed at 0.3 (current Earth's albedo) when the temperature is $\ge -10^\circ$C (critical T), otherwise it is 0.6 (ice albedo). The same way as the temperature, the average albedo of the planet is the sum of the area-weighted albedos.</p>
 
-$$\alpha_{average} = \sum(area_i * \alpha_i)$$
+\begin{equation}
+\tag{11}
+\alpha_{average} = \sum(area_i * \alpha_i)
+\end{equation}
 
 #### 7.4 EQUILIBRIUM STATES
 <p style='text-align: justify;'>Our objective is to find the equilibrium average temperature of the planet for a specific solar luminosity ($T_{eq}$ against $M$). In other words, how does the planet's temperature change when the overall solar energy received changes.</p>
@@ -456,7 +494,10 @@ At equilibrium, $F_{gain} = F_{loss}$
 
 $$F_{gain} = F_{loss} = A + B * T_i + G * (T_i - T_{avg})$$
 
-$$T_i = \frac{F_{gain} - A + G * T_{avg}}{(B+G)}$$
+\begin{equation}
+\tag{12}
+T_i = \frac{F_{gain} - A + G * T_{avg}}{(B+G)}
+\end{equation}
 
 <p style='text-align: justify;'>To find the equilibrium average planet temperature ($T_{avg}$), you will start with an arbitrary condition (i.e. local temperature for each latitude band) and use the iteration method.</p>
 
@@ -526,7 +567,7 @@ Illustrate two positive feedback loops when **1.** surface temperatures drops an
 ## 8 | DELIVERABLES
 
 #### Earth Journal 
-(*Choose **one** theme between Climate and Daisyword*)
+(*For the students concerned*)
 
 <p style='text-align: justify;'> In your Earth Journal, summarize what are the key concepts and skills you have acquired from this chapter and the significance of the topic. In addition, you can write on the insights that you received from this chapter and what questions you can ask yourself to learn further on the topic. You can also write on how you can apply such knowledge to your major.</p>
 
